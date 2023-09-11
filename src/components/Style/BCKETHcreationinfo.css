@@ -1,0 +1,267 @@
+.BoxGradient-button {
+    color: black;
+    font-size: 16px;
+    background-color: #262121;
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+    background: #ECECFB;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    padding: 10px;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    width: 50%;
+    height: 60px;
+    margin-top: 4rem;
+  }
+  .line-straight-bck{
+    width: 65%;
+    height: 1.5px;
+    background: linear-gradient(90deg, #37BFFF 18.23%, #37BFFF 51.04%, #471069 83.33%, rgba(71, 16, 105, 0.00) 97.6%);
+  }
+  .mining{
+    margin-top:1rem;
+    color: #F0C0FE;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.30);
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .step-1{
+    margin-bottom: 1rem;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .border-shadow{
+    padding-bottom: 20px;
+    /* border-radius: 10px; */
+    /* border: 1px solid transparent; */
+    background: linear-gradient(142deg, rgba(255, 255, 255, 0.07) 4.73%, rgba(255, 255, 255, 0.00) 100%);
+    padding: 30px;
+    border-style: solid;
+    border-width: 1px;
+    border-image: linear-gradient(150deg, #471069, #37BFFF) 1;
+  }
+  .range-slider .range-slider__range {
+    border-radius: 5.35px;
+background: #37BFFF !important;
+  }
+
+  .range-slider .range-slider__thumb {
+    border: 5px solid #FFF;
+    /* border-radius: 5.35px; */
+    background: #37BFFF !important;
+  }
+  .p-for-next-step{
+    margin-top: 3rem;
+  }
+  .straight-line-makerDao{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width:100%;
+    height: 0.7px;
+    background: linear-gradient(90deg, #37BFFF 1.23%, #471069 53.33%, rgba(71, 16, 105, 0.00) 97.6%);
+  }
+  .straight-line-makerDao-two
+  {
+    margin-left: 10rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width:70%;
+    height: 0.7px;
+    background: linear-gradient(90deg, #471069 18.23%, #37BFFF 51.04%, #471069 83.33%, rgba(71, 16, 105, 0.00) 97.6%);
+  }
+  .vertical-straight-line{
+    background: linear-gradient(90deg, #471069 18.23%, #37BFFF 51.04%, #471069 83.33%, rgba(71, 16, 105, 0.00) 97.6%);
+  }
+  .maximum-bck{
+    color: #FFF;
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .value-maximum-bck
+  {
+    color: #FFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .content-goerli{
+    color: #FFF;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .first-vault{
+    color: #FFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+  }
+  .second-vault{
+    color: #FFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .copy-content-bound{
+    color: #FFF;
+    font-size:12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .next-step{
+    color: #37BFFF;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+ 
+  }
+  .lock{
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+  }
+.gradient-buttons{
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
+    border-radius: 50em;
+    border: 3px solid transparent;
+}
+.card-backgorund {
+    /* border-radius: 20px; */
+    border: 1px solid rgba(71, 16, 105, 0.00);
+    background: linear-gradient(132deg, rgba(255, 255, 255, 0.08) 2.1%, rgba(255, 255, 255, 0.00) 66.15%);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.60);    
+    border-style: solid;
+    border-width: 1px;
+    border-image: linear-gradient(170deg, #47106900, #471069, #37BFFF) 1;
+}
+.bck-color{
+    color: #37BFFF;
+font-family: Montserrat;
+font-size: 30px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.mint-text{
+    color: #FFF;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 1rem;
+}
+.max-btn{
+    width: 100px;
+height: 50px;
+border-radius: 10px;
+border: 1px solid #ECECFB;
+}
+.input-max{
+    border-radius: 10px;
+border: 1px solid rgba(228, 228, 228, 0.25);
+background: rgba(0, 0, 0, 0.25);
+}
+.progress {
+    height: 0.6rem;
+}
+.progress-bar 
+{
+    background: #37BFFF;
+}
+.BoxGradient-button-max {
+    width: 100%;
+height: 45px;
+border-radius: 40px;
+background: #ECECFB;
+color: #121212;
+font-family: Montserrat;
+font-size: 22px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.card-background-down{
+    /* border-radius: 20px; */
+border: 1px solid rgba(71, 16, 105, 0.00);
+background: linear-gradient(119deg, rgba(255, 255, 255, 0.03) 1.58%, rgba(255, 255, 255, 0.00) 96.2%);
+box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.60);
+padding: 3rem;
+width: 100%;
+border-style: solid;
+border-width: 1px;
+border-image: linear-gradient(170deg, #47106900, #471069, #37BFFF) 1;
+}
+.withdrawable{
+    color: #FFF;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+}
+.straight-lines{
+    width: 100%;
+height: 1px;
+    background: linear-gradient(90deg, #471069 18.23%, #37BFFF 51.04%, #471069 83.33%, rgba(71, 16, 105, 0.00) 97.6%);
+}
+.first-div{
+    border-radius: 10px;
+    border: 0.5px solid #FFF;
+    padding: 1rem;
+    margin-top: 10px;
+}
+.number{
+    display: flex;
+    justify-content:end;
+}
+.images{
+
+object-fit: cover;
+}
+
+.content-contain{
+   margin-left: 1rem;
+}
+.relative-container {
+    position: relative;
+    color: #FFF;
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  
+  .relative-element {
+    position: absolute;
+    top: 2%;
+    right: 5%;
+  }
+  .box-content-word{
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+
+  

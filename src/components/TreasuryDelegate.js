@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { delegates } from "./Functions";
 import Swal from "sweetalert2";
+import delegateImg from "../assests/images/delegates.png";
 
 export default function TreasuryDelegate() {
   const [isLoading, setIsLoading] = useState(false);
@@ -36,14 +37,21 @@ export default function TreasuryDelegate() {
       {Cards_Data.map((item, index) => {
         return (
           <div key={index} className="card-backgorund p-3">
-            <p className="text-24 font-bold font-mont text-center">
+            <p className="text-24 font-bold font-mont bck-color">
               {item.heading}
             </p>
-            <div className="flex flex-col gap-2 mt-3">
-              <p>{item.title}:</p>
+            <div className="row">
+              <div className="col-md-12">
+                <div className="d-flex justify-content-center">
+                  <img src={delegateImg} alt="" />
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2 mt-2">
+              <p className="mb-3">{item.title}:</p>
               <button
                 onClick={item.onClick}
-                className="BoxGradient-buttons drop-shadow-xl hover:drop-shadow-sm"
+                className="BoxGradient-button-max drop-shadow-xl hover:drop-shadow-sm mb-3"
               >
                 {item.button}
               </button>

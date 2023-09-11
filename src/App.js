@@ -64,7 +64,7 @@ function App() {
     }
 
     return (
-         <div className='flex flex-col h-screen mb-20'>
+         <div className='flex flex-col root-one'>
         {isInitialized && networkId !== '0x5' && (
             <div 
                 className="fixed top-1/2 left-1/2 z-50 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center bg-red-500 text-white p-8 rounded shadow-lg w-1/2"
@@ -82,7 +82,7 @@ function App() {
             <div className="flex-grow">
                 <Routes>
                     <Route path='/' element={<ProtectedRoute />}>
-                        <Route path='' element={<HomePage />} />
+                        <Route path='/' element={<HomePage />} />
                         <Route path='/loan' element={<MakerDao />} />
                         <Route path="/bcketh" element={<BCKETH />} />
                         <Route path='/staking' element={<StakingPart />} />

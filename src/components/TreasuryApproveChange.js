@@ -11,10 +11,9 @@ export default function TreasuryApproveChange() {
   };
   const handleApproveChange = async () => {
     setIsLoading(true);
-   
-      await approveChanges(ID);
-     
-   
+
+    await approveChanges(ID);
+
     setIsLoading(false);
   };
 
@@ -35,20 +34,20 @@ export default function TreasuryApproveChange() {
       {Cards_Data.map((item, index) => {
         return (
           <div key={index} className="card-backgorund p-3">
-            <p className="text-24 font-bold font-mont text-center">
+            <p className="text-15 font-bold font-mont bck-color">
               {item.heading}
             </p>
             <div className="flex flex-col gap-2 mt-3">
-              <p>{item.title}:</p>
+              <p className="mt-3 mb-3">{item.title}:</p>
               <input
                 type="number"
                 onChange={(e) => item.onChangeInput(e)}
                 placeholder={item.inputTitle}
-                className="rounded-md text-14 bg-transparent focus:ring-2 outline-none border py-2 px-3"
+                className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
               />
               <button
                 onClick={item.onClick}
-                className="BoxGradient-buttons drop-shadow-xl hover:drop-shadow-sm"
+                className="BoxGradient-button-max drop-shadow-xl hover:drop-shadow-sm mt-4"
               >
                 {item.button}
               </button>

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import {
-  WithdrawInterestFunction,
-  WithdrawInterestView,
-} from "./Functions";
+import { WithdrawInterestFunction, WithdrawInterestView } from "./Functions";
+import Withdraw from "../assests/images/withdraw.png";
 
 export default function WithDrawInterest() {
   const [interest, setInterest] = useState("");
@@ -13,14 +11,23 @@ export default function WithDrawInterest() {
   };
 
   return (
-    <div className="p-3 card-backgorund rounded-lg">
-      <p className="text-24 font-bold text-center">
-        Withdraw Interest Earnt On Collateral
-      </p>
-      <div className="flex flex-col gap-2 mt-3">      
+    <div className="p-3 card-backgorund">
+      <div className="p-4">
+        <p className="text-24 font-bold  bck-color">
+          Withdraw Interest Earnt On Collateral
+        </p>
+      </div>
+      <div className="row">
+        <div className="col-md-12">
+          <div className="d-flex justify-content-center">
+            <img src={Withdraw} alt="" className="image-withdraw" />
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2 mt-3">
         <button
           onClick={WithdrawInterestFunction}
-          className="BoxGradient-buttons drop-shadow-xl hover:drop-shadow-sm"
+          className="BoxGradient-button-max drop-shadow-xl hover:drop-shadow-sm mt-4"
         >
           Withdraw Reward
         </button>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { exitSKR } from "./Function2";
 import Swal from "sweetalert2";
+import RangeSlider from "react-range-slider-input";
+import "react-range-slider-input/dist/style.css";
 
 export default function LiquidationExit() {
   const [amount, setAmount] = useState(0);
@@ -11,9 +13,9 @@ export default function LiquidationExit() {
   };
   const handleExitSKR = async () => {
     setIsLoading(true);
-  
-      await exitSKR(amount);
- 
+
+    await exitSKR(amount);
+
     setIsLoading(false);
   };
 
@@ -23,6 +25,7 @@ export default function LiquidationExit() {
       heading: "Exit SKR",
       title: "Amount of SKR you want to convert back to BCKETH",
       buttonText: "Exit SKR",
+      inputTitle: "Balance : $ 579",
       onChangeInput: handleonChangeInput,
       onClick: handleExitSKR,
     },
@@ -33,20 +36,26 @@ export default function LiquidationExit() {
       {LiquidCards_Data.map((item, index) => {
         return (
           <div key={index} className="card-backgorund p-3">
-            <p className="text-24 font-bold font-mont text-center">
+            <p className="text-24 font-bold font-mont bck-color">
               {item.heading}
             </p>
             <div className=" flex flex-col gap-2 mt-3">
               <p>{item.title} :</p>
-              <input
-                type="number"
-                onChange={(e) => item.onChangeInput(e)}
-                placeholder={item.inputTitle}
-                className="rounded-md text-14 bg-transparent focus:ring-2 outline-none border py-2 px-3"
-              />
+              <div className="d-flex">
+                <input
+                  type="number"
+                  onChange={(e) => item.onChangeInput(e)}
+                  placeholder={item.inputTitle}
+                  className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
+                />
+                <button className="ml-2  drop-shadow-xl max-btn">Max</button>
+              </div>
+              <div className="mt-4 mb-1">
+                <RangeSlider min={50} max={100} />
+              </div>  
               <button
                 onClick={item.onClick}
-                className="BoxGradient-buttons drop-shadow-xl hover:drop-shadow-sm"
+                className="BoxGradient-button-max drop-shadow-xl hover:drop-shadow-sm mt-3"
               >
                 {item.buttonText}
               </button>

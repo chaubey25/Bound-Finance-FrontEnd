@@ -2,8 +2,12 @@ import React, { useState, useEffect } from "react";
 import { DrawFunction, LockFunction, getCupsCreatedByAccount} from "./Functions";
 import { BCKETHContract, tubContract } from './Functionview';
 import { useMakerDao } from './MakerDaoContext';
+import './Style/CreateBCK.css';
+import RangeSlider from "react-range-slider-input";
+import "react-range-slider-input/dist/style.css";
 const Web3 = require("web3");
 const web3 = new Web3(Web3.givenProvider);
+
 
 function decimalToHexWithPadding(decimalValue) {
   const hexValue = decimalValue.toString(); 
@@ -69,14 +73,15 @@ export default function CreateBCK() {
   console.log(allowableMint);
   
 
+  const now=60;
 
 
   return (
     <div className="p-3 card-backgorund rounded-lg">
-      <p className="text-24 font-bold text-center">Create BCK</p>
+      <p className="text-24 font-bold bck-color">Create BCK </p>
       
       <div className="flex flex-col gap-2 mt-3">
-        <label htmlFor="lock" className="text-16 font-medium">
+        <label htmlFor="lock" className="text-20 font-medium">
           Lock BCKETH Collateral In Vault:
         </label>
         <div className="flex">
@@ -85,25 +90,32 @@ export default function CreateBCK() {
             value={lockAmount}
             onChange={(e) => setLockAmount(e.target.value)}
             placeholder={`Balance: ${parseFloat(web3.utils.fromWei(bckEthBalance.toString(), 'ether')).toFixed(2)} ETH`}
-            className="rounded-md text-14 bg-transparent focus:ring-2 outline-none border py-2 px-3 flex-grow"
+            className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
             id="wadInputlock"
           />
-          <button onClick={handleMaxLockClick} className="ml-2 BoxGradient-buttons drop-shadow-xl hover:drop-shadow-sm">
+          <button onClick={handleMaxLockClick} className="ml-2  drop-shadow-xl max-btn">
             Max
           </button>
         </div>
-        <button onClick={() => LockFunction(lockAmount)} className="BoxGradient-buttons drop-shadow-xl hover:drop-shadow-sm mt-2">
+        <div className="mt-4">
+        <RangeSlider min={50} max={100}/>
+        </div>
+        <button onClick={() => LockFunction(lockAmount)} className="BoxGradient-button-max drop-shadow-xl hover:drop-shadow-sm mt-4">
           Lock BCKETH In Vault
         </button>
       </div>
       
       <div className="flex flex-col gap-2 mt-6">
        <label htmlFor="draw" className="text-12 font-medium">
-  Create BCK ($): Caution! Minting to limit risks liquidation.
+        <p className="mb-2">Create BCK Stable coin $ :</p>
+        <p className="caution">Caution! Minting to limit risks liquidation.</p>
         </label>
-        <input type="number" className="rounded-md text-12 bg-transparent focus:ring-2 outline-none border py-2 px-3" id="wadInputdraw" placeholder={`Max Mint: $${allowableMintfixed} (Caution! Limit risks liquidation)`} />
-        <button onClick={DrawFunction} className="BoxGradient-buttons drop-shadow-xl hover:drop-shadow-sm">
-          Mint BCK Stablecoin
+        <input type="number" className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow" id="wadInputdraw" placeholder={`Max Mint: $${allowableMintfixed} (Caution! Limit risks liquidation)`} />
+        <div className="mt-4">
+        <RangeSlider min={50} max={100}/>
+        </div>
+        <button onClick={DrawFunction} className="BoxGradient-button-max drop-shadow-xl hover:drop-shadow-sm mt-4">
+          Mint
         </button>
       </div>
     </div>

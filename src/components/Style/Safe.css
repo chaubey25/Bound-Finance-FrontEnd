@@ -1,0 +1,6 @@
+.semi-circle-gauge {
+    display: flex;
+    align-items: flex-end; /* Align the gauge to the bottom */
+    height: 200px; /* Adjust the height as needed */
+    transform: rotate(0deg); /* Rotate the gauge to create a semi-circle appearance */
+  }

@@ -1,27 +1,45 @@
 import React from "react";
+import { BiSolidChevronsRight } from "react-icons/bi";
 
 export default function Liquidation() {
   return (
-    <div className="mt-4 max-w-[600px] mx-auto w-full space-y-5">
-      <p className="text-32 font-mont font-bold text-center text-gradient mb-8">
-        Understanding Liquidations
+    <div className="border-shadow max-w-[600px] mx-auto w-full space-y-5 p-5">
+      <p className="text-32 font-mont font-bold text-gradient ">
+        Understanding <br /> Liquidations
       </p>
+      <div className="line-straight-bck mt-1"></div>
 
-      <ul className="list-disc pl-8 text-20 font-mont space-y-4">
-        <li className="text-white-100">
-          Bound Finance ensures stability with a 2:1 collateral ratio: $2 in BCKETH for every $1 of BCK stablecoin.
-        </li>
-        <li>
-          Vaults under this ratio face liquidation, with collateral moved to Tap contract for sale, preserving BCK value.
-        </li>
-        <li>
-          BCKETH collateral is safeguarded as BETH. In debt scenarios, more BETH can be created to manage the debt.
-        </li>
-        <li>
-          While initially BETH and BCKETH can be swapped at 1:1, more BETH supply for debt may alter this rate, helping to tackle unforeseen debt situations.
-        </li>
-      </ul>
+      <div className="list-disc text-15 font-mont space-y-7 mt-5 ">
+        <div className="d-flex">
+          <BiSolidChevronsRight className="mt-1 me-3" />
+          <p className="text-white-100">
+            Bound Finance ensures stability with a 2:1 collateral ratio: $2 in
+            BCKETH for every $1 of BCK stablecoin.
+          </p>
+        </div>
+        <div className="d-flex">
+          <BiSolidChevronsRight className="mt-1 me-3" />
+          <p>
+         Vaults under this ratio face liquidation, with collateral moved to
+            Tap contract for sale, preserving BCK value.
+          </p>
+        </div>
+        <div className="d-flex">
+          <BiSolidChevronsRight className="mt-1 me-3" />
+          <p>
+            BCKETH collateral is safeguarded as BETH. In debt scenarios, more
+            BETH can be created to manage the debt.
+          </p>
+        </div>
+        <div className="d-flex">
+          <BiSolidChevronsRight className="mt-1 me-3" />
+          <p>
+            While initially BETH and BCKETH can be swapped at 1:1, more BETH
+            supply for debt may alter this rate, helping to tackle unforeseen
+            debt situations.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
-

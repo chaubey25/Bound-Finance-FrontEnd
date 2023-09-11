@@ -223,7 +223,7 @@ export async function getCupsCreatedByAccount(account) {
       const web3Events = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_ALCHEMYHTTPLINK));
 
       const contract = await getContract();
-  
+    console.log(web3Events)
       // Create a separate contract instance with the new web3Events for fetching events
       const eventContract = new web3Events.eth.Contract(contract.options.jsonInterface, contract.options.address);
   
