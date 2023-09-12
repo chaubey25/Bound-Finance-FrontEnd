@@ -71,7 +71,13 @@
   border: 3px solid transparent;
   
 }
-
+.main-nav{
+  background: linear-gradient(159deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.00) 100%);
+box-shadow: -5px -5px 130px 0px rgba(255, 255, 255, 0.02) inset;
+backdrop-filter: blur(21px);
+min-height: 70px; 
+padding: 0px;
+}
 /* .custom-link-for-big:hover{
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
   border-radius: 50em;

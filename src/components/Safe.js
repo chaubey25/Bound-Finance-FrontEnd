@@ -4,7 +4,7 @@ import ReactSpeedometer from "react-d3-speedometer";
 import "./Style/Safe.css";
 
 export default function CheckCupSafety() {
-  const value = "125%";
+  const value = "125";
 
   return (
     <div className="p-3 card-backgorund">
@@ -16,10 +16,11 @@ export default function CheckCupSafety() {
         <div className="for-first-ring">
           <div className="second-ring">
             <ReactSpeedometer
-              segments={3}
-              width={350}
-              customSegmentLabels={[{}, {}, {}]}
-              ringWidth={10}
+              segments={4}
+              width={360}
+              segmentColors={["#49E600","#49E600","#CEBA00","#D00000"]}
+              customSegmentLabels={[{}, {}, {}, {}]}
+              ringWidth={8}
               needleColor={"none"}
             />
           </div>
@@ -27,10 +28,10 @@ export default function CheckCupSafety() {
         <ReactSpeedometer
           width={300}
           segments={1}
-          needleHeightRatio={0.5}
+          needleHeightRatio={0.4}
           value={value}
           segmentColors={["#8590C8"]}
-          currentValueText="125% / 150%"
+          currentValueText="% "
           customSegmentLabels={[
             {
               backgroundColor: "#49E600",
@@ -45,7 +46,8 @@ export default function CheckCupSafety() {
           currentValuePlaceholderStyle=""
         />
       </div>
-      <div className="flex flex-col gap-2 mt-3">
+      <span className="your-ltv-per">/ 150 %</span>
+      <div className="flex flex-col gap-2 mt-2 mb-5">
         <button
           onClick={IsSafeFunction}
           className="BoxGradient-button-max drop-shadow-xl hover:drop-shadow-sm mt-4"

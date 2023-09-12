@@ -10,16 +10,21 @@
   }
   .second-ring{
     position: absolute;
-    top: -14rem;
-    right: -20.3rem;
+    top: -13.2rem;
+    right: -20.6rem;
+ 
   }
   .your-ltv{
     display: flex;
     justify-content: center;
     font-weight: 800;
     margin-top: 1rem;
-    margin-bottom: 2.7rem;
+    /* margin-bottom: 0.7rem; */
   }
-  .speedometer{
-    height: 200px;
+  .your-ltv-per{
+    display: flex;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    margin-left: 3rem;
   }

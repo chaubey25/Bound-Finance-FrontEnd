@@ -7,9 +7,10 @@ line-height: normal;
 margin-bottom: 0.5rem;
 }
 .speedometer {
-    height: 198px !important;
-
+    height: 186px !important;
+    
 }
+
 .image-withdraw{
     object-fit: cover;
 }

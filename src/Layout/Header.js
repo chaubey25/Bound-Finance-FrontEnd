@@ -119,7 +119,7 @@ export default function Header() {
     //   </div>
     // </div>
     <>
-      <Navbar expand={expandAttribute} className="bg-body-tertiary main">
+      <Navbar expand={expandAttribute} className="main-nav ">
         <Container fluid>
           <Navbar.Brand as={NavLink} to="/">
             <div className="brand-name">Bound.</div>
