@@ -4,3 +4,22 @@
     height: 200px; /* Adjust the height as needed */
     transform: rotate(0deg); /* Rotate the gauge to create a semi-circle appearance */
   }
+
+  .for-first-ring{
+    position: relative;
+  }
+  .second-ring{
+    position: absolute;
+    top: -14rem;
+    right: -20.3rem;
+  }
+  .your-ltv{
+    display: flex;
+    justify-content: center;
+    font-weight: 800;
+    margin-top: 1rem;
+    margin-bottom: 2.7rem;
+  }
+  .speedometer{
+    height: 200px;
+  }

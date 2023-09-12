@@ -106,22 +106,22 @@ export default function StackingCards() {
           <BCKEARN />
         </div>
         <div className="border-shadow mt-5 p-4">
-          <div className="row">
-            <div className="col-md-6">
+          <div className="d-flex justify-content-between align-item-center">
+            <div className="">
               <p>BCK Savings Account Balance</p>
             </div>
-            <div className="col-md-6">
+            <div className="">
               <p className=" text-end font-bold text-25 font-bold font-Helvetica">
                 ${depositedBCK} BCK
               </p>
             </div>
           </div>
           <div className="straight-line mt-4 mb-4"></div>
-          <div className="row">
-            <div className="col-md-6">
+          <div className="d-flex justify-content-between align-item-center">
+            <div className="">
               <p>USDC Interest Earnt</p>
             </div>
-            <div className="col-md-6">
+            <div className="">
               <p className="text-end font-bold text-25 font-bold font-Helvetica">
                 ${withdrawableInterest}
               </p>

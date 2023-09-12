@@ -54,7 +54,7 @@ export default function LiquidationTabContent() {
     <div>
       {LiquidCards_Data.map((item, index) => {
         return (
-          <div key={index} className=" p-5">
+          <div key={index} className="tab-pad">
             <p className=" font-bold font-mont bck-color">{item.heading}</p>
             <div className=" flex flex-col gap-4 mt-3">
               <p className="">{item.title} </p>

@@ -255,7 +255,7 @@ export const MakerDao = () => {
           <div className="row p-2">
             <div className="col-md-6">
               <div className="border-shadow mt-[50px]">
-                <div className=" p-4">
+                <div className=" ">
                   <MintContent />
                 </div>
 
@@ -282,9 +282,9 @@ export const MakerDao = () => {
               <MintTabs />
             </div>
           </div>
-          <div className="card-backgorund mt-4 mb-3">
+          <div className="card-backgorund mt-4 mb-3 main-content-div">
             <div className="row">
-              <div className="col-md-12 p-5">
+              <div className="col-md-12 content-card">
                 <div className="row">
                   <div className="col-md-12">
                     <div className="d-flex justify-content-between">

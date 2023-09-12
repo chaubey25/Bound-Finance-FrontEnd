@@ -3,7 +3,7 @@ import { BiSolidChevronsRight } from "react-icons/bi";
 
 export default function MintContent() {
   return (
-    <div className=" space-y-5 ps-5 pt-3">
+    <div className=" space-y-5 ">
       <p className="text-32 font-mont font-bold mb-8">
         <p className="step-1">STEP II :</p>
         <div className="line-straight-bck"></div>

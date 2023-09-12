@@ -3,7 +3,7 @@ import { BiSolidChevronsRight } from "react-icons/bi";
 
 export default function Liquidation() {
   return (
-    <div className="border-shadow max-w-[600px] mx-auto w-full space-y-5 p-5">
+    <div className="border-shadow max-w-[700px] mx-auto w-full space-y-5 content-div-liquidation">
       <p className="text-32 font-mont font-bold text-gradient ">
         Understanding <br /> Liquidations
       </p>

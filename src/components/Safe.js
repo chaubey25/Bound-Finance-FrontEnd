@@ -1,7 +1,7 @@
 import React from "react";
 import { IsSafeFunction } from "./Functions";
 import ReactSpeedometer from "react-d3-speedometer";
-import './Style/Safe.css';
+import "./Style/Safe.css";
 
 export default function CheckCupSafety() {
   const value = "125%";
@@ -11,34 +11,38 @@ export default function CheckCupSafety() {
       <p className="text-24 font-bold text-center bck-color">
         Is My CDP Safe From Liquidation ?
       </p>
+      <div className=" your-ltv">Your LTV</div>
       <div className="d-flex justify-content-center semi-circle-gauge mt-4">
+        <div className="for-first-ring">
+          <div className="second-ring">
+            <ReactSpeedometer
+              segments={3}
+              width={350}
+              customSegmentLabels={[{}, {}, {}]}
+              ringWidth={10}
+              needleColor={"none"}
+            />
+          </div>
+        </div>
         <ReactSpeedometer
           width={300}
+          segments={1}
           needleHeightRatio={0.5}
           value={value}
-          customSegmentStops={[0, 250, 750, 1000]}
-          segmentColors={["#8590C8", "#8590C8", "#40304c"]}
+          segmentColors={["#8590C8"]}
           currentValueText="125% / 150%"
           customSegmentLabels={[
             {
               backgroundColor: "#49E600",
-            },
-            {
-              text: "Your LTV",
-              position: "OUTSIDE",
-              color: "#ffff",
-            },
-            {
-              // text: 'Awesome!',
-              // position: 'OUTSIDE',
-              // color: '',
+              borderRadius: "50%",
             },
           ]}
           ringWidth={45}
-          needleTransitionDuration={3333}
+          needleTransitionDuration={4444}
           needleTransition="easeElastic"
           needleColor={"#ffff"}
           textColor={"#49E600"}
+          currentValuePlaceholderStyle=""
         />
       </div>
       <div className="flex flex-col gap-2 mt-3">

@@ -50,13 +50,13 @@ export default function TreasuryTabs() {
   }, []);
 
   return (
-    <div className="w-full max-w-[1449px] p-6  mx-auto gap-5 grid grid-cols-1 lg:grid-cols-2">
+    <div className="w-full max-w-[1449px] p-6  mx-auto gap-5 grid grid-cols-1 lg:grid-cols-2" style={{marginBottom:"4rem"}}>
       <div>
-        <div className="border-shadow">
+        <div className="border-shadow content-for-mobile">
           <Reserve />
         </div>
       </div>
-      <div className="w-full max-w-[567px] mx-auto">
+      <div className="w-full max-w-[700px] mx-auto">
         <div>
           <Tabs>
             <Tab label="Approve Changes">
@@ -72,8 +72,8 @@ export default function TreasuryTabs() {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <div className="d-flex justify-content-center">
-            <div className="cards_box text-white shadow-lg rounded-[6px] text-16 flex items-center justify-center">
+            <div className="d-flex justify-content-center card-backgorund">
+            <div className="p-5">
               <div className="text-center">
                 <p>Latest Proposal ID that has been created</p>
                 <p className="text-skyblue font-bold font-Helvetica text-2xl">

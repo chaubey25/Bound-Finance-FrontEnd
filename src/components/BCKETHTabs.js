@@ -75,8 +75,8 @@ const BCKETHTabs = () => {
 
   return (
     <div className="w-full max-w-[1449px] p-6 mt-[10px] mx-auto gap-5 grid grid-cols-1 lg:grid-cols-2">
-      <div className="border-for-content">
-        <div className="border-shadow">
+
+        <div className="border-shadow border-for-content">
         <BCKETHcreation />
        
       
@@ -86,8 +86,7 @@ const BCKETHTabs = () => {
             className="BoxGradient-button drop-shadow-xl hover:text-white py-2 px-4"
           >
             <div className="d-flex gap-3 justify-content-center">
-              {" "}
-              Step 2 <BiSolidChevronsRight className="mt-2" />
+              Step 2 <BiSolidChevronsRight className="arrow" />
             </div>
           </Link>
         </div>
@@ -95,7 +94,7 @@ const BCKETHTabs = () => {
           <span className="next-step">Next Step</span>: Lock your BCKETH in your
           CDP.
         </p>
-        </div>
+       
       </div>
 
       <div className="w-full mx-auto">
@@ -126,11 +125,11 @@ const BCKETHTabs = () => {
         </Tabs>
         <div className="">
           <div className="card-background-down">
-            <div className="row">
-              <div className="col-md-10">
+            <div className="d-flex justify-content-between">
+              <div className="">
                 <p className="withdrawable">Requested Withdrawable Funds</p>
               </div>
-              <div className="col-md-2">
+              <div className="">
                 <p className="withdrawable">$135</p>
               </div>
             </div>
@@ -142,13 +141,13 @@ const BCKETHTabs = () => {
                 <div className="straight-lines"></div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-8">
+            <div className="d-flex justify-content-between">
+              <div className="">
                 <p className="withdrawable">
                   Balance Of Reserve + BCKETH Contract
                 </p>
               </div>
-              <div className="col-md-4">
+              <div className="">
                 <p className="withdrawable font-bold text-center">
                   {combinedBalance} ETH
                 </p>
@@ -162,13 +161,11 @@ const BCKETHTabs = () => {
                 <div className="straight-lines"></div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-8">
-                {" "}
+            <div className="d-flex justify-content-between">
+              <div className="">
                 <p className="withdrawable">sTETH in Lido Vault</p>
               </div>
-              <div className="col-md-4 ">
-                {" "}
+              <div className=" ">
                 <p className=" font-bold text-center withdrawable">
                   {stETHBalance} sTETH
                 </p>
