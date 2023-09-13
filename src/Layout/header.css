@@ -23,6 +23,7 @@
   text-align: center;
   /* width: 12%; */
   padding: 0px;
+  font-size: 18px;
   color: aliceblue !important;  
 }
 .custom-link-for-big{
@@ -57,19 +58,36 @@
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
   border-radius: 50em;
   border: 3px solid transparent;
+  font-size: 15px;
 }
 
-/* .custom-link:hover{
+.custom-link:hover{
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
   border-radius: 50em;
   border: 3px solid transparent;
-} */
+}
+
+.custom-link-for-big-for-cdp:hover{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+}
+
+.custom-link-for-big:hover{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
+  border-radius: 50em;
+  border: 3px solid transparent;
+}
+
+
+
+
 
 .custom-link-for-big.active{
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,linear-gradient(to right,rgba(71, 16, 105, 1), rgba(48, 197, 210, 1)) border-box;
   border-radius: 50em;
   border: 3px solid transparent;
-  
+  font-size: 15px;
 }
 .main-nav{
   background: linear-gradient(159deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.00) 100%);
@@ -111,10 +129,16 @@ padding: 0px;
     border: 3px solid transparent;
     font-size: 12px !important;
   }
+  .brand-name{
+    font-size:20px;
+  }
+  .finance-name{
+    font-size:12px;
+  }
 }
 
 
-@media (min-width: 5001px) and (max-width: 767px){
+@media (min-width: 501px) and (max-width: 767px){
   .custom-link-for-big{
     color: aliceblue !important;
     font-size: 12px;
@@ -126,6 +150,12 @@ padding: 0px;
   .custom-link{
     color: aliceblue !important;
     font-size: 12px;
+  }
+  .brand-name{
+    font-size:24px;
+  }
+  .finance-name{
+    font-size:16px;
   }
 }
 

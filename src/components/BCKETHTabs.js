@@ -75,26 +75,25 @@ const BCKETHTabs = () => {
 
   return (
     <div className="w-full max-w-[1449px] p-6 mt-[10px] mx-auto gap-5 grid grid-cols-1 lg:grid-cols-2">
-
-        <div className="border-shadow border-for-content">
+      <div className="border-shadow border-for-content">
         <BCKETHcreation />
-       
-      
-        <div className="flex justify-center items-center w-full mt-8">
-          <Link
-            to="/loan"
-            className="BoxGradient-button drop-shadow-xl hover:text-white py-2 px-4"
-          >
-            <div className="d-flex gap-3 justify-content-center">
-              Step 2 <BiSolidChevronsRight className="arrow" />
-            </div>
-          </Link>
+
+        <div className="d-none d-md-block">
+          <div className="flex justify-center items-center w-full">
+            <Link
+              to="/loan"
+              className="BoxGradient-button drop-shadow-xl hover:text-white py-2 px-4"
+            >
+              <div className="d-flex gap-3 justify-content-center">
+                Step 2 <BiSolidChevronsRight className="arrow" />
+              </div>
+            </Link>
+          </div>
+          <p className="lock text-24 font-mont text-center">
+            <span className="next-step">Next Step</span>: Lock your BCKETH in
+            your CDP.
+          </p>
         </div>
-        <p className="lock text-24 font-mont text-center">
-          <span className="next-step">Next Step</span>: Lock your BCKETH in your
-          CDP.
-        </p>
-       
       </div>
 
       <div className="w-full mx-auto">
@@ -123,6 +122,22 @@ const BCKETHTabs = () => {
             <LidoStETHConversion />
           </Tab>
         </Tabs>
+        <div className="d-md-none">
+          <div className="flex justify-center items-center w-full">
+            <Link
+              to="/loan"
+              className="BoxGradient-button drop-shadow-xl hover:text-white py-2 px-4"
+            >
+              <div className="d-flex gap-3 justify-content-center">
+                Step 2 <BiSolidChevronsRight className="arrow" />
+              </div>
+            </Link>
+          </div>
+          <p className="lock text-24 font-mont text-center mt-2 mb-4">
+            <span className="next-step">Next Step</span>: Lock your BCKETH in
+            your CDP.
+          </p>
+        </div>
         <div className="">
           <div className="card-background-down">
             <div className="d-flex justify-content-between">

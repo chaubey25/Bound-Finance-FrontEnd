@@ -100,12 +100,12 @@ export default function StackingCards() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 w-full max-w-[1449px] mt-[20px] mx-auto gap-5 p-4 md:grid-cols-2">
-      <div className="w-full max-w-[600px] mx-auto">
+    <div className="grid grid-cols-1 w-full max-w-[1449px] mt-[10px] gap-4 mx-auto p-4 md:grid-cols-2">
+      <div className="w-full max-w-[700px] mx-auto">
         <div className="border-shadow p-5 ">
           <BCKEARN />
         </div>
-        <div className="border-shadow mt-5 p-4">
+        <div className="border-shadow mt-2 p-4">
           <div className="d-flex justify-content-between align-item-center">
             <div className="">
               <p>BCK Savings Account Balance</p>
@@ -129,7 +129,7 @@ export default function StackingCards() {
           </div>
         </div>
       </div>
-      <div className="w-full max-w-[567px] mx-auto">
+      <div className="w-full max-w-[700px] mx-auto  d-flex">
         {StackingToken_Data.map((item, index) => {
           return (
             <div
@@ -142,12 +142,20 @@ export default function StackingCards() {
               <div className="w-full mt-3 flex flex-col gap-2">
                 <div className="flex flex-col gap-1">
                   <p className="text-16 font-medium mb-3 ">{item.title} :</p>
-                  <input
-                    type="number"
-                    onChange={(e) => setStakeAmount(e.target.value)}
-                    className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
-                    placeholder="Balance : $ 5679"
-                  />
+                  <div className="flex">
+                    <input
+                      type="number"
+                      onChange={(e) => setStakeAmount(e.target.value)}
+                      className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
+                      placeholder="Balance : $ 5679"
+                    />
+                    <button
+                      // onClick={handleMaxLockClick}
+                      className="ml-2  drop-shadow-xl max-btn"
+                    >
+                      Max
+                    </button>
+                  </div>
                   <div className="mt-4 mb-1">
                     <RangeSlider min={50} max={100} />
                   </div>
@@ -160,12 +168,20 @@ export default function StackingCards() {
                 </div>
                 <div className="flex flex-col gap-1 mt-3">
                   <p className="text-16 font-medium mb-2">{item.title2} :</p>
+                  <div className="flex">
                   <input
                     type="number"
                     onChange={(e) => setUnstakeAmount(e.target.value)}
                     className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
                     placeholder="Balance : $ 5679"
                   />
+                   <button
+                      // onClick={handleMaxLockClick}
+                      className="ml-2  drop-shadow-xl max-btn"
+                    >
+                      Max
+                    </button>
+                  </div>
                   <div className="mt-4 mb-1">
                     <RangeSlider min={50} max={100} />
                   </div>

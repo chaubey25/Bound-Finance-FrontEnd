@@ -38,7 +38,7 @@ export default function LiquidationTabs() {
     <div className="w-full max-w-[700px] mx-auto ">
       <Tabs>
         <Tab label="Liquidations">
-          <div className="border-shadow"> <LiquidationTabContent /></div>
+          <div className="border-shadow-li"> <LiquidationTabContent /></div>
          
         </Tab>
         <Tab label="Exit BETH for BCKETH">
@@ -46,7 +46,7 @@ export default function LiquidationTabs() {
         </Tab>
       </Tabs>
       <div className="d-flex justify-content-center">
-        <div className="border-shadow grid md:grid-cols-2 w-full gap-4">
+        <div className="border-shadow p-3 grid md:grid-cols-2 w-full gap-4">
           <div className="text-center w-full p-3">
             <p>Bad debt Amount In The System</p>
 

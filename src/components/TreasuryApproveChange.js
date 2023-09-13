@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { approveChanges } from "./Functions";
 import Swal from "sweetalert2";
+import info from '../assests/images/info.png'
 
 export default function TreasuryApproveChange() {
   const [ID, setID] = useState(0);
@@ -26,6 +27,7 @@ export default function TreasuryApproveChange() {
       button: "Approve",
       onChangeInput: handleOnChange,
       onClick: handleApproveChange,
+      img:info
     },
   ];
 
@@ -37,7 +39,10 @@ export default function TreasuryApproveChange() {
             <p className="text-15 font-bold font-mont bck-color">
               {item.heading}
             </p>
-            <div className="flex flex-col gap-2 mt-3">
+            <div className="d-flex justify-content-center image-for">
+              <img src={item?.img} alt=""/>
+            </div>
+            <div className="flex flex-col">
               <p className="mt-3 mb-3">{item.title}:</p>
               <input
                 type="number"

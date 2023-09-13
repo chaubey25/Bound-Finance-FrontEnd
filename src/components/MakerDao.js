@@ -16,7 +16,7 @@ import {
 import { Link } from "react-router-dom";
 import { MakerDaoContext } from "./MakerDaoContext";
 import { BiSolidChevronsRight } from "react-icons/bi";
-import './Style/MakerDao.css';
+import "./Style/MakerDao.css";
 
 export const MakerDao = () => {
   const { address } = useAccount();
@@ -258,28 +258,48 @@ export const MakerDao = () => {
                 <div className=" ">
                   <MintContent />
                 </div>
-
-                <div className="flex justify-center items-center w-full">
-                  <Link
-                    to="/staking"
-                    className=" drop-shadow-xl hover:text-white py-2 px-4 BoxGradient-button mt-4"
+                <div className="d-none d-md-block">
+                  <div className="flex justify-center items-center w-full">
+                    <Link
+                      to="/staking"
+                      className=" drop-shadow-xl hover:text-white py-2 px-4 BoxGradient-button mt-4"
+                    >
+                      <div className="d-flex gap-3 justify-content-center">
+                        Step 3 <BiSolidChevronsRight className="mt-2" />
+                      </div>
+                    </Link>
+                  </div>
+                  <p
+                    className=" font-mont text-center p-for-next-step"
+                    style={{ fontSize: "20px" }}
                   >
-                    <div className="d-flex gap-3 justify-content-center">
-                      Step 3 <BiSolidChevronsRight className="mt-2" />
-                    </div>
-                  </Link>
+                    <span className="next-step ">NEXT STEP </span>: Deposit BCK
+                    in the savings account for USDC yield.
+                  </p>
                 </div>
-                <p
-                  className=" font-mont text-center p-for-next-step"
-                  style={{ fontSize: "20px" }}
-                >
-                  <span className="next-step ">NEXT STEP </span>: Deposit BCK in
-                  the savings account for USDC yield.
-                </p>
               </div>
             </div>
             <div className="col-md-6 mt-[50px]">
               <MintTabs />
+            </div>
+            <div className="d-md-none">
+              <div className="flex justify-center items-center">
+                <Link
+                  to="/staking"
+                  className=" drop-shadow-xl hover:text-white py-2 px-4 BoxGradient-button mt-4 "
+                >
+                  <div className="d-flex gap-3 justify-content-center ">
+                    Step 3 <BiSolidChevronsRight className="mt-1" />
+                  </div>
+                </Link>
+              </div>
+              <p
+                className=" font-mont text-center p-for-next-step"
+                style={{ fontSize: "20px" }}
+              >
+                <span className="next-step ">NEXT STEP </span>: Deposit BCK in
+                the savings account for USDC yield.
+              </p>
             </div>
           </div>
           <div className="card-backgorund mt-4 mb-3 main-content-div">
@@ -315,10 +335,8 @@ export const MakerDao = () => {
                   </div>
                   {/* <span className="vertical-straight-line"></span> */}
                   <div className="col-md-6">
-                  <div className="d-flex justify-content-between">
-                      <div className="maximum-bck">
-                        Min. Collateral Ratio
-                      </div>
+                    <div className="d-flex justify-content-between">
+                      <div className="maximum-bck">Min. Collateral Ratio</div>
                       <div className="value-maximum-bck">200%</div>
                     </div>
                   </div>
@@ -327,16 +345,14 @@ export const MakerDao = () => {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="d-flex justify-content-between">
-                      <div className="maximum-bck">
-                      BCK Debt Amount
-                      </div>
+                      <div className="maximum-bck">BCK Debt Amount</div>
                       <div className="value-maximum-bck"> $244 BCK</div>
                     </div>
                   </div>
                   <div className="col-md-6">
-                  <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between">
                       <div className="maximum-bck">
-                      Collateral Amount BCKETH
+                        Collateral Amount BCKETH
                       </div>
                       <div className="value-maximum-bck">65 BCKETH</div>
                     </div>
@@ -346,17 +362,13 @@ export const MakerDao = () => {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="d-flex justify-content-between">
-                      <div className="maximum-bck">
-                      Liquidation Fee
-                      </div>
+                      <div className="maximum-bck">Liquidation Fee</div>
                       <div className="value-maximum-bck"> 25%</div>
                     </div>
                   </div>
                   <div className="col-md-6">
-                  <div className="d-flex justify-content-between">
-                      <div className="maximum-bck">
-                      Interest Amount Earned
-                      </div>
+                    <div className="d-flex justify-content-between">
+                      <div className="maximum-bck">Interest Amount Earned</div>
                       <div className="value-maximum-bck">306 ETH</div>
                     </div>
                   </div>

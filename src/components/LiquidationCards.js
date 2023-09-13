@@ -9,7 +9,7 @@ export default function LiquidationCards() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 w-full max-w-[1449px] mx-auto gap-5 p-4 md:grid-cols-2 " style={{marginBottom:"3rem"}}>
+      <div className="grid grid-cols-1 w-full max-w-[1449px] mx-auto gap-5 p-4 md:grid-cols-2 " style={{marginBottom:"2rem"}}>
         <div className="w-full max-w-[700px] mx-auto ">
           <div className="">
             <Liquidation />

@@ -13,6 +13,7 @@ margin-bottom: 0.5rem;
 
 .image-withdraw{
     object-fit: cover;
+    height: 200px;
 }
 .arrow{
     margin-top: 0.5rem;
@@ -38,8 +39,8 @@ margin-bottom: 0.5rem;
     } 
     .BoxGradient-button {
         margin-top: 1rem !important;
-        width: 100% !important;
-        height: 40px !important;
+        /* width: 100% !important; */
+        height: 43px !important;
         font-size: 19px !important;
     }
     .arrow{
@@ -99,6 +100,7 @@ margin-bottom: 0.5rem;
         border: 1px solid #ECECFB;
         font-weight: 700 !important;
     }
+    
 }
 @media (min-width: 501px) and (max-width: 800px){
 

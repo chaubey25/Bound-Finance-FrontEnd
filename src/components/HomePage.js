@@ -202,7 +202,7 @@ const DisplaySystemInfo = () => {
           </div>
         </div>
         
-        <div className="d-flex justify-content-around align-item-center mt-5 boxes-content">
+        <div className="d-flex justify-content-evenly align-item-center mt-5 boxes-content">
           <div className="">
             <p className=" gradient-color boxes">
               <span className="test-eth">67 ETH</span>

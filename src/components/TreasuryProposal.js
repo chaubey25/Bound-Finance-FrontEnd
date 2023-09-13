@@ -74,7 +74,7 @@ export default function TreasuryProposal() {
           </p>
           <div className="row">
             <div className="col-md-12">
-              <div className="d-flex justify-content-center">
+              <div className="d-flex justify-content-center image-for">
                 <img src={info} alt="" className="image-outfit"/>
               </div>
             </div>

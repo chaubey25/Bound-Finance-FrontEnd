@@ -4,3 +4,7 @@
 .special-for-tab{
     font-size: 10px !important;
 }
+.image-for{
+    height: 20vh;
+    object-fit: cover;
+}

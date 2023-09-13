@@ -1,7 +1,7 @@
 .bound-home{
     color: #FFF;
     font-family: Montserrat;
-    font-size: 90px;
+    font-size: 101px;
     font-style: normal;
     font-weight: 700;
     line-height: 120px; /* 109.091% */
@@ -155,10 +155,8 @@
         justify-content: center; 
     }
     .line-straight{
-        height: 2px !important;
-        margin-right: 0px;
-        display: flex;
-        justify-content: center;
+        height: 1px !important;
+        margin-left: 5rem;
     }
     .btn-get{
         margin-left: 9rem;
@@ -175,7 +173,7 @@
         width: 75%;
     }
     .gradient-color{
-        width:100%;
+        width:95%;
         height: 5vh;
     }
     .test-eth {
@@ -218,10 +216,12 @@
         font-size: 30px;
         letter-spacing: 1px;
         line-height: 70px;
+        text-align: center;
     }
     .finance {
         font-size: 50px;
         line-height: 80px;
+        text-align: center;
     }
     .system {
         color: #37BFFF;
@@ -236,13 +236,13 @@
     }
     .line-straight-two{
         margin-left: 6rem;
-        width: 73%;
+        width: 60%;
     }
     .gradient-color{
         width: 100%;
     }
     .boxes{
-        width: 100%;
+        width: 95%;
     }
     .total-interest{
         text-align: center;
@@ -250,6 +250,12 @@
     }
     .tot{
         margin-left: 0rem;
+    }
+    .test-eth {
+        font-size: 25px;
+    }
+    .boxes {
+        width: 91%;
     }
   }
   
@@ -334,9 +340,9 @@
   /* Styles for desktop screens */
   @media (min-width: 992px) and (max-width: 1200px) {
     .bound-home{
-        font-size: 80px;
-        letter-spacing: 5px;
-        line-height: 80px;
+        font-size: 60px;
+        letter-spacing: 1px;
+        line-height: 60px;
         margin-left: 3.3rem;
     }
     .crypto{
@@ -377,8 +383,24 @@
     }
     .crypto{
         font-size: 32.077px;
+        text-align: center;
+        margin-top: 1rem !important;
+    }
+    .line-straight {
+        margin-left: 3rem !important;
+    }
+    .bound-home {
+        text-align: center;
+       line-height: 50px;
+       font-size: 66px;
+    }
+    .finance {
+        font-size: 60px;
+        text-align: center;
     }
   }
+
+
   @media (min-width: 1301px) {
     .bound-home{
         margin-left: 3rem !important;
@@ -389,5 +411,6 @@
     .crypto{
         margin-left: 3rem !important;
     }
+    
   }
   
