@@ -145,7 +145,15 @@ const BCKETHTabs = () => {
                 <p className="withdrawable">Requested Withdrawable Funds</p>
               </div>
               <div className="">
-                <p className="withdrawable">$135</p>
+                <p className="withdrawable">
+                  {withdrawalRequest
+                    ? withdrawalRequest.completed
+                      ? "0.00 ETH"
+                      : `${wadToPrimaryUnit(withdrawalRequest.amount).toFixed(
+                          2
+                        )} ETH`
+                    : "Loading..."}
+                </p>
               </div>
             </div>
             <div className="row mt-4 mb-4">

@@ -183,16 +183,16 @@ const DisplaySystemInfo = () => {
             <p className="finance m-0">Finance</p>
             <div className="line-straight"></div>
             <p className="crypto m-0"> Crypto Side</p>
-            <div className="order-3 btn-get d-none d-md-block">
-              <button>GET STARTED</button>
-            </div>
+            <Link to="/bcketh" className="order-3 btn-get d-none d-md-block">
+              <div className="btn-started">GET STARTED</div>
+            </Link>
           </div>
           <div className="col-md-8 order-2 order-md-2">
             <img src={img1} alt="" className="" />
           </div>
-          <div className="order-3 btn-get mt-3 mb-3 d-md-none">
-              <button className="btn-started">GET STARTED</button>
-            </div>
+          <Link to="/bcketh" className="order-3 btn-get mt-3 mb-3 d-md-none">
+            <div className="btn-started">GET STARTED</div>
+          </Link>
         </div>
 
         <div className="row ">
@@ -201,29 +201,29 @@ const DisplaySystemInfo = () => {
             <div className="line-straight-two"></div>
           </div>
         </div>
-        
+
         <div className="d-flex justify-content-evenly align-item-center mt-5 boxes-content">
           <div className="">
-            <p className=" gradient-color boxes">
-              <span className="test-eth">67 ETH</span>
-            </p>
+          <div className={`${ interestDistributed.length > 1 ? "boxes-for-dynamic-first" : " gradient-color boxes"}`}>
+              <span className="test-eth">{interestDistributed} ETH</span>
+            </div>
             <div className="total-interest-second">
               <p className="tot">Total</p>
               <p className="interest">Interest Distributed</p>
             </div>
           </div>
           <div className="">
-            <p className=" gradient-color boxes">
-              <span className="test-eth text-light">$234</span>
-            </p>
+            <div className={`${ rawCollateral.length > 1 ? "boxes-for-dynamic-second" : " gradient-color boxes"}`}>
+              <span className="test-eth text-light">${rawCollateral}</span>
+            </div>
             <div className="total-interest-second">
               <p className="bcketh">BCKETH Collateral</p>
             </div>
           </div>
           <div className="">
-            <p className=" gradient-color boxes">
-              <span className="test-eth">$45BCK</span>
-            </p>
+          <div className={`${ totalDebt.length > 1 ? "boxes-for-dynamic" : " gradient-color boxes"}`}>
+              <span className="test-eth"> ${totalDebt}BCK</span>
+            </div>
             <div className="total-interest-second">
               <p className="bcketh">Total BCK Drawn</p>
             </div>

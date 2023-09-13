@@ -137,6 +137,16 @@ function BckethCreation() {
   };
   const now = 60;
 
+  //for slider
+   const handleInputChange = (e) => {
+    const newValue = parseFloat(e.target.value);
+    if (!isNaN(newValue)) {
+      setInputValue(newValue);
+      setCanMint(true);
+    }
+  };
+
+
   return (
     <div className="card-backgorund p-5">
       <p className="text-24 font-bold bck-color">BCKETH</p>
@@ -149,7 +159,7 @@ function BckethCreation() {
             <input
               type="number"
               value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
+              onChange={handleInputChange}
               placeholder={`Balance: ${parseFloat(
                 web3.utils.fromWei(ethBalance.toString(), "ether")
               ).toFixed(2)} ETH`}
@@ -162,8 +172,14 @@ function BckethCreation() {
               Max
             </button>
           </div>
-          <div className="mt-3">
-            <RangeSlider min={50} max={100}/>
+          <div className="mt-4">
+            <RangeSlider
+              // min={0}
+              max={ethBalance}
+              step={0.01}
+              value={inputValue.toString()}
+              onChange={(value) => setInputValue(value)}
+            />
           </div>
           <button
             id="mintAmount"

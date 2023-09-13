@@ -43,7 +43,7 @@
     border-radius: 40px;
     background: #ECECFB;
     width: 300px;
-    height: 50px;
+    /* height: 50px; */
     color: #121212;
     font-size: 30px;
     font-weight: 600;
@@ -54,6 +54,9 @@
     justify-content: center;
     margin-top: 5rem;
     box-shadow: -0px -1px 8px 0px white;
+}
+.btn-get:hover{
+    color:#121212;
 }
 
 
@@ -76,11 +79,46 @@
     backdrop-filter: blur(21px);
     text-align: center;
     width: 250px;
-    height: 100px;
+}
+.boxes-for-dynamic{
+    border-radius: 5px ;
+    /* border: 3px solid #471069; */
+    background: radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%);
+    box-shadow: -5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset;
+    backdrop-filter: blur(21px);
+    text-align: center;
+    min-width: 102%;
+    border: 3px solid transparent; /* Set the initial border width and make it transparent */
+    border-image: linear-gradient(  rgba(71, 16, 105, 1), rgba(48, 197, 210, 1), rgba(71, 16, 105, 1),rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    border-image-slice: 2; /* Ensure the entire gradient is used for the border */
+}
+.boxes-for-dynamic-first{
+    border-radius: 5px ;
+    /* border: 3px solid #471069; */
+    background: radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%);
+    box-shadow: -5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset;
+    backdrop-filter: blur(21px);
+    text-align: center;
+    min-width: 326px;
+    border: 3px solid transparent; /* Set the initial border width and make it transparent */
+    border-image: linear-gradient(  rgba(71, 16, 105, 1), rgba(48, 197, 210, 1), rgba(71, 16, 105, 1),rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    border-image-slice: 2; /* Ensure the entire gradient is used for the border */
+}
+.boxes-for-dynamic-second{
+    border-radius: 5px ;
+    /* border: 3px solid #471069; */
+    background: radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%);
+    box-shadow: -5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset;
+    backdrop-filter: blur(21px);
+    text-align: center;
+    min-width: 350px;
+    border: 3px solid transparent; /* Set the initial border width and make it transparent */
+    border-image: linear-gradient(  rgba(71, 16, 105, 1), rgba(48, 197, 210, 1), rgba(71, 16, 105, 1),rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    border-image-slice: 2; /* Ensure the entire gradient is used for the border */
 }
 .test-eth{
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 42px;
+    font-size: 35px;
     font-style: normal;
     font-weight: 700;
     line-height: 100px;
@@ -108,7 +146,6 @@
 }
 .gradient-color{
     width: 250px;
-    height: 100px;
     border: 3px solid transparent; /* Set the initial border width and make it transparent */
     border-image: linear-gradient(  rgba(71, 16, 105, 1), rgba(48, 197, 210, 1), rgba(71, 16, 105, 1),rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
     border-image-slice: 2; /* Ensure the entire gradient is used for the border */
@@ -123,6 +160,12 @@
 }
 
 @media (min-width:0px) and (max-width:574px){
+    .boxes-for-dynamic-second {
+        min-width: 96px;
+    }
+    .boxes-for-dynamic-first{
+        min-width: 120px;
+    }
     .boxes-content{
         margin-bottom: 7rem;
     }
@@ -161,7 +204,7 @@
     .btn-get{
         margin-left: 9rem;
         width: 100px;
-        height: 30px !important;
+        /* height: 30px !important; */
         font-size: 10px;
         order:4;
     }
@@ -174,7 +217,7 @@
     }
     .gradient-color{
         width:95%;
-        height: 5vh;
+        /* height: 5vh; */
     }
     .test-eth {
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -201,9 +244,14 @@
 }
 
   
-  /* Styles for tablet screens */
+  /* Styles for tablet screens min-width: 230px;*/
   @media (min-width: 576px) and (max-width: 767.98px) {
-   
+    .boxes-for-dynamic-second {
+        min-width: 150px;
+    }
+    .boxes-for-dynamic-first{
+        min-width: 100%;
+    }
     .bound-home{
         font-size: 50.769px;
         font-style: normal;
@@ -261,6 +309,10 @@
   
   /* Styles for laptop screens */
   @media (min-width: 768px) and (max-width: 991.98px) {
+    .boxes-for-dynamic-second {
+        min-width: 230px;
+    }
+
     .bound-home{
         font-size: 80px;
         letter-spacing: 1px;
@@ -304,7 +356,7 @@
     }
     .btn-get{
         width: 200px;
-        height: 40px !important;
+        /* height: 40px !important; */
         font-size: 15px;
         margin-left: 1.5rem;
         margin-top: 3   rem !important;
@@ -316,7 +368,7 @@
     }
     .boxes{
         width: 150px;
-        height: 61px;
+        /* height: 61px; */
     }
     .total-interest-second{
         font-size: 15px;
@@ -334,6 +386,9 @@
     }
     .boxes-content{
         margin-bottom: 27rem;
+    }
+    .boxes-for-dynamic-first{
+        min-width: 200px;
     }
 }
   
@@ -375,9 +430,14 @@
     .btn-get{
         margin-left: 3rem;
     }
+    .boxes-for-dynamic{
+        min-width: 101%;
+    }
+   
   }
 
   @media (min-width: 1200px) and (max-width: 1300px){
+  
     .btn-get{
         margin-left: 3rem;
     }
