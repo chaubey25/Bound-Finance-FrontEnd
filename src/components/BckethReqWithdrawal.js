@@ -8,9 +8,9 @@ import {
 import { BCKETHContract } from "./Functionview";
 const Web3 = require("web3");
 const web3 = new Web3(Web3.givenProvider);
-import ProgressBar from 'react-bootstrap/ProgressBar'
-import RangeSlider from "react-range-slider-input";
-import "react-range-slider-input/dist/style.css";
+import ProgressBar from "react-bootstrap/ProgressBar";
+import InputRange from "react-input-range";
+import "react-input-range/lib/css/index.css";
 
 export default function BckethReqWithdrawal() {
   const [withdrawAmount, setWithdrawAmount] = useState("");
@@ -18,10 +18,10 @@ export default function BckethReqWithdrawal() {
   const [hasPendingWithdrawal, setHasPendingWithdrawal] = useState(false);
   const [bckEthBalance, setBckEthBalance] = useState(0);
 
-  // useEffect(() => {
-  //   checkPendingWithdrawal();
-  //   fetchBckEthBalance();
-  // }, []);
+  let balance = parseFloat(
+    web3.utils.fromWei(bckEthBalance.toString(), "ether")
+  );
+  const [inputRangeValue, setInputRangeValue] = useState(0);
 
   useEffect(() => {
     try {
@@ -30,7 +30,7 @@ export default function BckethReqWithdrawal() {
       console.error("Error checking pending withdrawal:", error);
       // Handle the error, e.g., show an error message to the user.
     }
-  
+
     try {
       fetchBckEthBalance();
     } catch (error) {
@@ -38,7 +38,7 @@ export default function BckethReqWithdrawal() {
       // Handle the error, e.g., show an error message to the user.
     }
   }, []);
-  
+
   // const checkPendingWithdrawal = async () => {
   //   const token = await getTokenContract();
   //   const accounts = await web3.eth.getAccounts();
@@ -63,7 +63,6 @@ export default function BckethReqWithdrawal() {
       // Handle the error, e.g., show an error message to the user.
     }
   };
-  
 
   // const fetchBckEthBalance = async () => {
   //   const bck = await BCKETHContract();
@@ -72,7 +71,6 @@ export default function BckethReqWithdrawal() {
   //   const balance = await bck.methods.balanceOf(owner).call();
   //   setBckEthBalance(balance);
   // };
-
 
   const fetchBckEthBalance = async () => {
     try {
@@ -86,7 +84,7 @@ export default function BckethReqWithdrawal() {
       // Handle the error, e.g., show an error message to the user.
     }
   };
-  
+
   // const handleWithdrawalRequest = async () => {
   //   setIsLoading(true);
   //   await requestWithdrawal(withdrawAmount);
@@ -141,7 +139,29 @@ export default function BckethReqWithdrawal() {
     }
   };
 
-  const now=60;
+  //range Slider
+
+  let increment = 0.01;
+
+  const handleMint=(e)=>{
+    const newValue = parseFloat(e.target.value);
+
+    if (!isNaN(newValue)) {
+      setWithdrawAmount(newValue);
+      setInputRangeValue(newValue)
+    } else {
+      setWithdrawAmount("");
+      setInputRangeValue(0); 
+    }
+  }
+
+  const handleRangeChange = (value) => {
+    setWithdrawAmount(value)
+    setInputRangeValue(value)
+  };
+
+
+
   return (
     <div>
       <div className="card-background-down">
@@ -164,14 +184,17 @@ export default function BckethReqWithdrawal() {
           <div className="flex flex-col gap-2">
             {hasPendingWithdrawal && (
               <>
-                <label htmlFor="withdrawBCK" className="text-16 font-medium mint-text">
+                <label
+                  htmlFor="withdrawBCK"
+                  className="text-16 font-medium mint-text"
+                >
                   BCKETH Withdraw Request Input:
                 </label>
                 <div className="flex mt-3">
                   <input
                     type="number"
                     value={withdrawAmount}
-                    onChange={(e) => setWithdrawAmount(e.target.value)}
+                    onChange={handleMint}
                     placeholder={`Balance: ${parseFloat(
                       web3.utils.fromWei(bckEthBalance.toString(), "ether")
                     ).toFixed(2)} BCKETH`}
@@ -185,7 +208,13 @@ export default function BckethReqWithdrawal() {
                   </button>
                 </div>
                 <div className="mt-3">
-                  <RangeSlider min={50} max={100}/>
+                  <InputRange
+                    step={increment}
+                    allowSameValues={true}
+                    draggableTrack={true}
+                    value={inputRangeValue}
+                    onChange={handleRangeChange}
+                  />
                 </div>
                 <button
                   id="withdrawBCK"

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { joinbck, getAccount, getTokenContract } from "./Functions";
 const Web3 = require("web3");
 const web3 = new Web3(Web3.givenProvider); // Assume you have a web3 instance in your project
-import RangeSlider from "react-range-slider-input";
-import "react-range-slider-input/dist/style.css";
+import InputRange from "react-input-range";
+import "react-input-range/lib/css/index.css";
 
 function BckethCreation() {
   const [ethBalance, setEthBalance] = useState(0);
@@ -11,6 +11,10 @@ function BckethCreation() {
   const [estimatedGas, setEstimatedGas] = useState(0);
   const [canMint, setCanMint] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+
+
+  let balance=parseFloat(web3.utils.fromWei(ethBalance.toString(), "ether")).toFixed(2)
+  const [inputRangeValue, setInputRangeValue] = useState(0);
 
   //   useEffect(() => {
   //     async function fetchBalances() {
@@ -101,11 +105,14 @@ function BckethCreation() {
 
       const maxAmount = ethBalanceValue - estimatedGasValue;
 
+
       if (maxAmount > 0) {
         const maxAmountInEther = parseFloat(
           web3.utils.fromWei((maxAmount * 0.9995).toString(), "ether")
-        );
+          );
+          console.log(maxAmountInEther,"maxAmountInEther")
         setInputValue(maxAmountInEther);
+        setInputRangeValue(maxAmountInEther);
         setCanMint(true);
       } else {
         setInputValue("Not enough gas");
@@ -138,14 +145,37 @@ function BckethCreation() {
   const now = 60;
 
   //for slider
-   const handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     const newValue = parseFloat(e.target.value);
     if (!isNaN(newValue)) {
       setInputValue(newValue);
+      setInputRangeValue(newValue); 
       setCanMint(true);
+    } else {
+      setInputValue("");
+      setInputRangeValue(0); 
+      setCanMint(false); 
     }
   };
 
+  let increment = 0.00000000001 ;
+
+  const handleRangeChange = (value) => {
+    setInputValue(value);
+    setInputRangeValue(value);
+  
+    // Calculate the maximum possible value for the slider based on your balance
+    const maxSliderValue = (balance - increment).toFixed(3); //0.00000000001  is subtracted to leave some balance for gas
+  
+    if (parseFloat(maxSliderValue) < value) {
+      // If the value exceeds the maximum allowed value, set it to the maximum allowed value
+      setInputValue(maxSliderValue);
+      setInputRangeValue(maxSliderValue);
+    }
+  
+    setCanMint(true);
+  };
+  
 
   return (
     <div className="card-backgorund p-5">
@@ -173,12 +203,12 @@ function BckethCreation() {
             </button>
           </div>
           <div className="mt-4">
-            <RangeSlider
-              // min={0}
-              max={ethBalance}
-              step={0.01}
-              value={inputValue.toString()}
-              onChange={(value) => setInputValue(value)}
+            <InputRange
+              step={increment}
+              allowSameValues={true}
+              draggableTrack={true}
+              value={inputRangeValue}
+              onChange={handleRangeChange}
             />
           </div>
           <button

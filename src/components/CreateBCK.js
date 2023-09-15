@@ -1,25 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { DrawFunction, LockFunction, getCupsCreatedByAccount} from "./Functions";
-import { BCKETHContract, tubContract } from './Functionview';
-import { useMakerDao } from './MakerDaoContext';
-import './Style/CreateBCK.css';
-import RangeSlider from "react-range-slider-input";
-import "react-range-slider-input/dist/style.css";
+import {
+  DrawFunction,
+  LockFunction,
+  getCupsCreatedByAccount,
+} from "./Functions";
+import { BCKETHContract, tubContract } from "./Functionview";
+import { useMakerDao } from "./MakerDaoContext";
+import "./Style/CreateBCK.css";
 const Web3 = require("web3");
 const web3 = new Web3(Web3.givenProvider);
 
+import InputRange from "react-input-range";
+import "react-input-range/lib/css/index.css";
 
 function decimalToHexWithPadding(decimalValue) {
-  const hexValue = decimalValue.toString(); 
-  const paddedHexValue = web3.utils.padLeft(hexValue, 64); 
-  return '0x' + paddedHexValue; 
+  const hexValue = decimalValue.toString();
+  const paddedHexValue = web3.utils.padLeft(hexValue, 64);
+  return "0x" + paddedHexValue;
 }
 
 export default function CreateBCK() {
-  const [lockAmount, setLockAmount] = useState('');
+  const [lockAmount, setLockAmount] = useState("");
   const [debtamount, setdebtAmount] = useState(0);
   const [bckEthBalance, setBckEthBalance] = useState(0);
   const { maxBCK } = useMakerDao();
+
+
+  // let balance=parseFloat(web3.utils.fromWei(bckEthBalance.toString(), "ether"))
+  const [inputRangeValue, setInputRangeValue] = useState(0);
+  const [inputRangeValueMint, setInputRangeValueMint] = useState(0);
 
   useEffect(() => {
     fetchBckEthBalance();
@@ -28,15 +37,14 @@ export default function CreateBCK() {
 
   const fetchBckEthBalance = async () => {
     const bck = await BCKETHContract();
-    
+
     const account = await web3.eth.getAccounts();
     const owner = account[0];
     const cup = await getCupsCreatedByAccount(owner);
-    console.log(cup[0], 'FIRST CUP ')
+    console.log(cup[0], "FIRST CUP ");
     const balance = await bck.methods.balanceOf(owner).call();
-   
+
     setBckEthBalance(Number(balance));
-    
   };
 
   const fetchdebt = async () => {
@@ -48,38 +56,75 @@ export default function CreateBCK() {
 
       if (cup && cup.length > 0) {
         const cup1 = decimalToHexWithPadding(cup[0]);
-        console.log(cup[0], 'FIRST CUP ')
+        console.log(cup[0], "FIRST CUP ");
         const debt = await tub.methods.tab(cup1).call();
         console.log(debt, "THIS IS HOW MUCH DEBT THERE IS IN THIS");
-        const debteth = await web3.utils.fromWei(debt.toString(), 'ether');
+        const debteth = await web3.utils.fromWei(debt.toString(), "ether");
         const debtETHnumber = Number(debteth);
         setdebtAmount(debtETHnumber);
       } else {
         console.error("No cup found. Can't proceed.");
       }
     } catch (error) {
-      console.error('An error occurred while fetching debt:', error);
+      console.error("An error occurred while fetching debt:", error);
     }
   };
 
   const handleMaxLockClick = () => {
-    let amount = web3.utils.fromWei(bckEthBalance.toString(), 'ether');
+    let amount = web3.utils.fromWei(bckEthBalance.toString(), "ether");
     setLockAmount(amount);
   };
 
-
-  const allowableMint = isNaN(Number(maxBCK) - Number(debtamount)) ? 0 : Number(maxBCK) - Number(debtamount);
+  const allowableMint = isNaN(Number(maxBCK) - Number(debtamount))
+    ? 0
+    : Number(maxBCK) - Number(debtamount);
   const allowableMintfixed = allowableMint.toFixed(2);
   console.log(allowableMint);
-  
+  const [mintAmount, setMintAmount] = useState(allowableMintfixed > 0 ? allowableMintfixed : '');
+  let increment =0.01;
 
-  const now=60;
+  const handleInputChange = (e) => {
+    const newValue = parseFloat(e.target.value);
+    if (!isNaN(newValue)) {
+      setLockAmount(newValue);
+      setInputRangeValue(newValue); 
+    } else {
+      setLockAmount("");
+      setInputRangeValue(0); 
+    }
+  };
+
+  const handleRangeChange = (value) => {
+    setLockAmount(value)
+    setInputRangeValue(value)
+  };
+
+
+  const inputMint=0.01;
+  
+  const handleMint=(e)=>{
+    const newValue = parseFloat(e.target.value);
+
+    if (!isNaN(newValue)) {
+        setMintAmount(newValue);
+     setInputRangeValueMint(newValue)
+    } else {
+       setMintAmount("");
+       setInputRangeValueMint(0); 
+    }
+  }
+
+  const handleMintChange = (value) => {
+    setMintAmount(value)
+    setInputRangeValueMint(value)
+  };
+
 
 
   return (
-    <div className="p-3 card-backgorund rounded-lg">
+    <div className="p-3 card-backgorund ">
       <p className="text-24 font-bold bck-color">Create BCK </p>
-      
+
       <div className="flex flex-col gap-2 mt-3">
         <label htmlFor="lock" className="text-20 font-medium">
           Lock BCKETH Collateral In Vault:
@@ -88,33 +133,65 @@ export default function CreateBCK() {
           <input
             type="number"
             value={lockAmount}
-            onChange={(e) => setLockAmount(e.target.value)}
-            placeholder={`Balance: ${parseFloat(web3.utils.fromWei(bckEthBalance.toString(), 'ether')).toFixed(2)} ETH`}
+            onChange={handleInputChange}
+            placeholder={`Balance: ${parseFloat(
+              web3.utils.fromWei(bckEthBalance.toString(), "ether")
+            ).toFixed(2)} ETH`}
             className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
             id="wadInputlock"
           />
-          <button onClick={handleMaxLockClick} className="ml-2  drop-shadow-xl max-btn">
+          <button
+            onClick={handleMaxLockClick}
+            className="ml-2  drop-shadow-xl max-btn"
+          >
             Max
           </button>
         </div>
         <div className="mt-4">
-        <RangeSlider min={50} max={100}/>
+          <InputRange
+            step={increment}
+            allowSameValues={true}
+            draggableTrack={true}
+            value={inputRangeValue}
+            onChange={handleRangeChange}
+          />
         </div>
-        <button onClick={() => LockFunction(lockAmount)} className="BoxGradient-button-max drop-shadow-xl hover:drop-shadow-sm mt-4">
+        <button
+          onClick={() => LockFunction(lockAmount)}
+          className="BoxGradient-button-max drop-shadow-xl hover:drop-shadow-sm mt-4"
+        >
           Lock BCKETH In Vault
         </button>
       </div>
-      
+
       <div className="flex flex-col gap-2 mt-6">
-       <label htmlFor="draw" className="text-12 font-medium">
-        <p className="mb-2">Create BCK Stable coin $ :</p>
-        <p className="caution">Caution! Minting to limit risks liquidation.</p>
+        <label htmlFor="draw" className="text-12 font-medium">
+          <p className="mb-2">Create BCK Stable coin $ :</p>
+          <p className="caution">
+            Caution! Minting to limit risks liquidation.
+          </p>
         </label>
-        <input type="number" className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow" id="wadInputdraw" placeholder={`Max Mint: $${allowableMintfixed} (Caution! Limit risks liquidation)`} />
+        <input
+          type="number"
+          className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
+          id="wadInputdraw"
+          placeholder={`Max Mint: $${allowableMintfixed} (Caution! Limit risks liquidation)`}
+          value={mintAmount}
+          onChange={handleMint}
+        />
         <div className="mt-4">
-        <RangeSlider min={50} max={100}/>
+        <InputRange
+            step={inputMint}
+            allowSameValues={true}
+            draggableTrack={true}
+            value={inputRangeValueMint}
+            onChange={handleMintChange}
+          />
         </div>
-        <button onClick={DrawFunction} className="BoxGradient-button-max drop-shadow-xl hover:drop-shadow-sm mt-4">
+        <button
+          onClick={DrawFunction}
+          className="BoxGradient-button-max drop-shadow-xl hover:drop-shadow-sm mt-4"
+        >
           Mint
         </button>
       </div>

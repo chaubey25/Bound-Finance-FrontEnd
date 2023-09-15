@@ -1011,6 +1011,7 @@ export const FreeFunction = async () => {
     console.log(maxWad, "THIS IS MAX WAD TRY AGAIN")
      const collateralETHER = await weiToEther(collateral);
 
+
     if (parseFloat(wad) > await weiToEther(collateral)) {
         console.log(`Maximum Wei you can free without hitting the collateralization ratio: ${maxWad}`);
         Swal.fire({

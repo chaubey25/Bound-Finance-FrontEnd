@@ -53,16 +53,25 @@
     border-width: 1px;
     border-image: linear-gradient(150deg, #471069, #37BFFF) 1;
   }
-  .range-slider .range-slider__range {
-    border-radius: 5.35px;
-background: #37BFFF !important;
+  .input-range__track--active{
+    background-color: #37BFFF;
+  }
+  .input-range__track {
+    height: 10px;
+  }
+  .input-range__slider {
+    border-radius: 10.35px;
+    background: #37BFFF !important;
+    border: 3.5px solid #FFF;
+    height: 20px;
+    width: 20px;
+    margin-top: -0.9em;
   }
 
-  .range-slider .range-slider__thumb {
-    border: 5px solid #FFF;
-    /* border-radius: 5.35px; */
-    background: #37BFFF !important;
+  .input-range__label-container {
+    display: none;
   }
+
   .p-for-next-step{
     margin-top: 3rem;
   }

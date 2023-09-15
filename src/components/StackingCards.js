@@ -8,13 +8,16 @@ import {
   depositUSDC,
   balanceofEarnBCK,
 } from "../components/Function2";
+const Web3 = require("web3");
+const web3 = new Web3(Web3.givenProvider);
 
 import { getWithdrawableInterest, getDepositedBCKAmount } from "./Functionview";
 
 import BCKEARN from "./BCKSavings";
 import "./Style/StackingCards.css";
-import RangeSlider from "react-range-slider-input";
-import "react-range-slider-input/dist/style.css";
+
+import InputRange from "react-input-range";
+import "react-input-range/lib/css/index.css";
 
 export default function StackingCards() {
   const [dividends, setDividends] = useState("");
@@ -28,6 +31,11 @@ export default function StackingCards() {
   const [unstakeAmount, setUnstakeAmount] = useState("");
   const [withdrawableInterest, setWithdrawableInterest] = useState(0);
   const [depositedBCK, setDepositedBCK] = useState(0);
+  const [unstake, setUnstake] = useState(0);
+
+  //For slider state
+  const [inputRangeValue, setInputRangeValue] = useState(0);
+  const [inputRangeValueUnStake, setInputRangeValueUnStake] = useState(0);
 
   const handleStakeTokens = async () => {
     let result = await stakeTokens(stakeAmount);
@@ -61,6 +69,49 @@ export default function StackingCards() {
     setDepositResult(result);
   };
 
+  const handleMaxStableCoinClick = () => {
+    let amount = web3.utils.fromWei(depositedBCK.toString(), "ether");
+    setStakeAmount(amount);
+  };
+
+  const handleMaxUnStakeCoinClick = () => {
+    let amount = web3.utils.fromWei(unstake.toString(), "ether");
+    setUnstakeAmount(amount);
+  };
+
+  const increment = 0.01;
+  const incrementUn = 0.01;
+
+  const handleInputChange = (e) => {
+    const newValue = parseFloat(e.target.value);
+    if (!isNaN(newValue)) {
+      setStakeAmount(newValue);
+      setInputRangeValue(newValue);
+    } else {
+      setStakeAmount("");
+      setInputRangeValue(0);
+    }
+  };
+  const handleRangeChange = (value) => {
+    setInputRangeValue(value);
+    setStakeAmount(value);
+  };
+
+  const handleInputUnStakeChange = (e) => {
+    const newValue = parseFloat(e.target.value);
+    if (!isNaN(newValue)) {
+      setUnstakeAmount(newValue);
+      setInputRangeValueUnStake(newValue);
+    } else {
+      setUnstakeAmount("");
+      setInputRangeValueUnStake(0);
+    }
+  };
+  const handleUnStakeRangeChange = (value) => {
+    setInputRangeValueUnStake(value);
+    setUnstakeAmount(value);
+  };
+
   const StackingToken_Data = [
     {
       id: 1,
@@ -70,6 +121,16 @@ export default function StackingCards() {
       title2: "Unstake BCK Stablecoin ($)",
       button2: "Unstake",
       onClick2: handleUnstakeTokens,
+      InputValueMax1: stakeAmount,
+      inputUnstakeValue: unstakeAmount,
+      inputChange: handleInputChange,
+      inputRangeValue1: inputRangeValue,
+      inputRangeValue2:inputRangeValueUnStake,
+      onChangeStake: handleRangeChange,
+      handleUnStake: handleInputUnStakeChange,
+      onChangeUnStakeRange: handleUnStakeRangeChange,
+      onClickMax: handleMaxStableCoinClick,
+      onClickMaxUnstake: handleMaxUnStakeCoinClick,
       title3: "Withdraw USDC Rewards",
       button3: "Withdraw Rewards",
       onClick1: handleWithdrawRewards,
@@ -98,6 +159,8 @@ export default function StackingCards() {
 
     return () => clearInterval(interval); // Clear the interval when the component unmounts
   }, []);
+
+  //For slider functions
 
   return (
     <div className="grid grid-cols-1 w-full max-w-[1449px] mt-[10px] gap-4 mx-auto p-4 md:grid-cols-2">
@@ -134,7 +197,7 @@ export default function StackingCards() {
           return (
             <div
               key={index}
-              className="card-backgorund p-4 w-full flex flex-col gap-3"
+              className="card-backgorund p-4 w-full flex flex-col "
             >
               <p className="text-24 font-bold font-mont bck-color">
                 {item.heading}
@@ -145,19 +208,26 @@ export default function StackingCards() {
                   <div className="flex">
                     <input
                       type="number"
-                      onChange={(e) => setStakeAmount(e.target.value)}
+                      onChange={item.inputChange}
                       className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
                       placeholder="Balance : $ 5679"
+                      value={item.InputValueMax1}
                     />
                     <button
-                      // onClick={handleMaxLockClick}
+                      onClick={item.onClickMax}
                       className="ml-2  drop-shadow-xl max-btn"
                     >
                       Max
                     </button>
                   </div>
                   <div className="mt-4 mb-1">
-                    <RangeSlider min={50} max={100} />
+                    <InputRange
+                      step={increment}
+                      allowSameValues={true}
+                      draggableTrack={true}
+                      value={item.inputRangeValue1}
+                      onChange={item.onChangeStake}
+                    />
                   </div>
                   <button
                     onClick={item.onClick3}
@@ -169,21 +239,28 @@ export default function StackingCards() {
                 <div className="flex flex-col gap-1 mt-3">
                   <p className="text-16 font-medium mb-2">{item.title2} :</p>
                   <div className="flex">
-                  <input
-                    type="number"
-                    onChange={(e) => setUnstakeAmount(e.target.value)}
-                    className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
-                    placeholder="Balance : $ 5679"
-                  />
-                   <button
-                      // onClick={handleMaxLockClick}
+                    <input
+                      type="number"
+                      onChange={item.handleUnStake}
+                      className="rounded-md text-14 focus:ring-2 input-max py-2 px-3 flex-grow"
+                      placeholder="Balance : $ 5679"
+                      value={item.inputUnstakeValue}
+                    />
+                    <button
+                      onClick={item.onClickMaxUnstake}
                       className="ml-2  drop-shadow-xl max-btn"
                     >
                       Max
                     </button>
                   </div>
                   <div className="mt-4 mb-1">
-                    <RangeSlider min={50} max={100} />
+                    <InputRange
+                      step={incrementUn}
+                      allowSameValues={true}
+                      draggableTrack={true}
+                      value={item.inputRangeValue2}
+                      onChange={item.onChangeUnStakeRange}
+                    />
                   </div>
                   <button
                     onClick={item.onClick2}
@@ -192,7 +269,7 @@ export default function StackingCards() {
                     {item.button2}
                   </button>
                 </div>
-                <div className="flex flex-col gap-1 mt-1">
+                <div className="flex flex-col mt-4 gap-1">
                   <p className="text-16 font-medium ">{item.title3} :</p>
                   <button
                     onClick={item.onClick1}

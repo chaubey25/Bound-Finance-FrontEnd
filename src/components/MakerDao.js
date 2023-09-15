@@ -171,87 +171,6 @@ export const MakerDao = () => {
     <>
       <MakerDaoContext.Provider value={{ maxBCK }}>
         <div className="w-full max-w-[1449px] mx-auto ">
-          {/* <div className="flex flex-col items-center justify-center gap-6 mt-10">
-            <div className="flex flex-col items-center gap-2 sm:gap-3">
-              <p className="text-36 text-gradient font-bold font-mont">
-                Vault BCKETH-BCK
-              </p>
-              <p className="text-16 font-mont text-white-100">
-                Network : {activeChain ? activeChain : "Connect Wallet"}
-              </p>
-            </div>
-            <p className="font-mont text-16 break-normal text-purple-300">
-              Bound Finance | Crypto-Side
-            </p>
-
-            <div className="mt-7 flex flex-row items-center justify-center gap-10 flex-wrap">
-              <div className="text-center mt-4">
-                <p className="font-mont text-15 text-skyblue">
-                  Caution: BCK Draw Limit (Risk of Liquidation Near Max)
-                </p>
-                <p className="text-gray-300 font-bold font-Helvetica text-8">
-                  {" "}
-                  (Caution: Minting the limit risks liquidation.)
-                </p>
-                <p className="text-gray-300 font-bold font-Helvetica text-2xl">
-                  {maxBCK ? `$${maxBCK} BCK` : "No collateral in vault"}
-                </p>
-                <InfoHover content="Max Mint Limit: Caution! Risk of liquidation if maxed. Safe zone: 50% of max." />
-              </div>
-              <div className="text-center mt-4">
-                <p className="font-mont text-15 text-skyblue">
-                  BCK Debt Amount
-                </p>
-                <p
-                  className={`text-gray-300 font-bold font-Helvetica text-2xl ${getColorClass(
-                    debtInVault,
-                    maxBCK
-                  )}`}
-                >
-                  {debtInVault ? `$${debtInVault} BCK` : "No debt"}
-                </p>
-              </div>
-              <div className="text-center mt-4">
-                <p className="font-mont text-15 text-skyblue">
-                  Liquidation Fee
-                </p>
-                <p className="text-gray-300 font-bold font-Helvetica text-2xl">
-                  13%
-                </p>
-                <InfoHover content="If your vault is liquidated, a liquidation penalty is added to your vault’s total outstanding debt in BCK, which results in more collateral being sold to cover the outstanding debt. This is done to incentivize vaults owners to avoid liquidation. The size of the liquidation penalty is determined by the Liquidation Fee which is calculated based on the debt in the vault." />
-              </div>
-              <div className="text-center mt-4">
-                <p className="font-mont text-15 text-skyblue">
-                  Min. Collateral Ratio
-                </p>
-                <p className="text-gray-300 font-bold font-Helvetica text-2xl">
-                  150%
-                </p>
-                <InfoHover content="This is also called the Liquidation Ratio. If the Vault reaches below the minimum collateralization level it is considered undercollateralized and is subject to liquidation. Your collateral will then be partially auctioned off to cover outstanding debt and liquidation fee." />
-              </div>
-              <div className="text-center mt-4">
-                <p className="font-mont text-15 text-skyblue">
-                  Collateral Amount BCKETH
-                </p>
-                <p className="text-gray-300 font-bold font-Helvetica text-2xl">
-                  {collateralAmount
-                    ? `${collateralAmount}  BCKETH`
-                    : "No collateral"}
-                </p>
-              </div>
-              <div className="text-center mt-4">
-                <p className="font-mont text-15 text-skyblue">
-                  Interest Amount Earned
-                </p>
-                <p className="text-gray-300 font-bold font-Helvetica text-2xl">
-                  {interestEarned
-                    ? `${interestEarned} ETH`
-                    : "No interest earned"}
-                </p>
-              </div>
-            </div>
-          </div> */}
-
           <div className="row p-2">
             <div className="col-md-6">
               <div className="border-shadow mt-[50px]">
@@ -316,8 +235,11 @@ export const MakerDao = () => {
                       </div>
                       <div className="second-vault">
                         <p>
-                          Network -{" "}
-                          <span className="content-goerli">Goerli</span>
+                          Network :
+                          <span className="content-goerli">
+                            {" "}
+                            {activeChain ? activeChain : "Connect Wallet"}
+                          </span>
                         </p>
                       </div>
                     </div>
@@ -330,7 +252,10 @@ export const MakerDao = () => {
                       <div className="maximum-bck">
                         Maximum BCK You Can Draw
                       </div>
-                      <div className="value-maximum-bck"> $356 BCK</div>
+                      <div className="value-maximum-bck">
+                        {" "}
+                        {maxBCK ? `$${maxBCK} BCK` : "No collateral in vault"}
+                      </div>
                     </div>
                   </div>
                   {/* <span className="vertical-straight-line"></span> */}
@@ -346,7 +271,9 @@ export const MakerDao = () => {
                   <div className="col-md-6">
                     <div className="d-flex justify-content-between">
                       <div className="maximum-bck">BCK Debt Amount</div>
-                      <div className="value-maximum-bck"> $244 BCK</div>
+                      <div className="value-maximum-bck">
+                        {debtInVault ? `$${debtInVault} BCK` : "No debt"}
+                      </div>
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -354,7 +281,12 @@ export const MakerDao = () => {
                       <div className="maximum-bck">
                         Collateral Amount BCKETH
                       </div>
-                      <div className="value-maximum-bck">65 BCKETH</div>
+                      <div className="value-maximum-bck">
+                        {" "}
+                        {collateralAmount
+                          ? `${collateralAmount}  BCKETH`
+                          : "No collateral"}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -369,7 +301,11 @@ export const MakerDao = () => {
                   <div className="col-md-6">
                     <div className="d-flex justify-content-between">
                       <div className="maximum-bck">Interest Amount Earned</div>
-                      <div className="value-maximum-bck">306 ETH</div>
+                      <div className="value-maximum-bck">
+                        {interestEarned
+                          ? `${interestEarned} ETH`
+                          : "No interest earned"}
+                      </div>
                     </div>
                   </div>
                 </div>

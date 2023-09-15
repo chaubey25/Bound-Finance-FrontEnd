@@ -87,7 +87,7 @@
     box-shadow: -5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset;
     backdrop-filter: blur(21px);
     text-align: center;
-    min-width: 102%;
+    min-width: 300px;
     border: 3px solid transparent; /* Set the initial border width and make it transparent */
     border-image: linear-gradient(  rgba(71, 16, 105, 1), rgba(48, 197, 210, 1), rgba(71, 16, 105, 1),rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
     border-image-slice: 2; /* Ensure the entire gradient is used for the border */
@@ -99,7 +99,7 @@
     box-shadow: -5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset;
     backdrop-filter: blur(21px);
     text-align: center;
-    min-width: 326px;
+    min-width: 300px;
     border: 3px solid transparent; /* Set the initial border width and make it transparent */
     border-image: linear-gradient(  rgba(71, 16, 105, 1), rgba(48, 197, 210, 1), rgba(71, 16, 105, 1),rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
     border-image-slice: 2; /* Ensure the entire gradient is used for the border */
@@ -111,14 +111,14 @@
     box-shadow: -5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset;
     backdrop-filter: blur(21px);
     text-align: center;
-    min-width: 350px;
+    min-width: 300px;
     border: 3px solid transparent; /* Set the initial border width and make it transparent */
     border-image: linear-gradient(  rgba(71, 16, 105, 1), rgba(48, 197, 210, 1), rgba(71, 16, 105, 1),rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
     border-image-slice: 2; /* Ensure the entire gradient is used for the border */
 }
 .test-eth{
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 35px;
+    font-size: 25px;
     font-style: normal;
     font-weight: 700;
     line-height: 100px;
@@ -160,6 +160,9 @@
 }
 
 @media (min-width:0px) and (max-width:574px){
+    .boxes-for-dynamic{
+        min-width: 100px;
+    }
     .boxes-for-dynamic-second {
         min-width: 96px;
     }
@@ -300,7 +303,7 @@
         margin-left: 0rem;
     }
     .test-eth {
-        font-size: 25px;
+        font-size: 20px;
     }
     .boxes {
         width: 91%;
@@ -309,6 +312,9 @@
   
   /* Styles for laptop screens */
   @media (min-width: 768px) and (max-width: 991.98px) {
+    .boxes-for-dynamic{
+        min-width: 200px;
+    }
     .boxes-for-dynamic-second {
         min-width: 230px;
     }
@@ -363,7 +369,7 @@
         line-height: 40px;
     }
     .test-eth{
-        font-size: 20px;
+        font-size: 16px;
         line-height: 55px;
     }
     .boxes{
